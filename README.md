@@ -20,7 +20,7 @@ Follow installation instructions.
 ``` $ ls ```
 
 #### Making a directory
-```` mkdir <directory_name>```
+``` mkdir <directory_name>```
 
 #### Removing a directory
 ``` rmdir <directory_name>```
