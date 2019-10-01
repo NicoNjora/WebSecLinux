@@ -1,15 +1,45 @@
-## Linux
-
-Group 1
+# Group 1 - Linux
 
 ## Installation
-Download iso file from https://ubuntu.com/download/desktop
+Download ubuntu desktop iso file from **https://ubuntu.com/download/desktop**
+
+If on Windows:
+    - Download Putty from **https://www.putty.org/**
 
 Follow installation instructions.
 
 ## Basic Linux Commands
 
+#### Finding your current directory
+``` pwd ```
 
+#### Go into another directory
+``` cd <directory_name>```
+
+#### Listing a folder's contents:
+``` $ ls ```
+
+#### Making a directory
+```` mkdir <directory_name>```
+
+#### Removing a directory
+``` rmdir <directory_name>```
+
+**Example Output**: 
+Desktop
+Downloads
+Documents
+file.txt
+
+#### Checking what a command does
+```man <command>​```
+- Example: ```man ls```
+
+#### SSH
+``` ssh <host> -p <port> -l <login_name>```
+- Example: ```ssh bandit0@bandit.labs.overthewire.org -p 2220```
+
+For more commands check out this [tutorial](https://maker.pro/linux/tutorial/basic-linux-commands-for-beginners)
 
 ## OverTheWire games
 - The wargames offered by the OverTheWire community can help you to learn and practice security concepts in the form of fun-filled games.
