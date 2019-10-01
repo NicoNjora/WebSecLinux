@@ -12,7 +12,10 @@ Follow installation instructions.
 
 
 ## OverTheWire games
-- The wargames offered by the OverTheWire community can help you to learn and practice security concepts in the form of fun-filled games. 
+- The wargames offered by the OverTheWire community can help you to learn and practice security concepts in the form of fun-filled games.
+
+- [Bandit](#bandit)
+- [Natas](#natas)
 
 ### Bandit 
 
@@ -116,3 +119,24 @@ drwxr-xr-x 2 root    root    4096 Oct 16  2018 . drwxr-xr-x 3 root    root    40
 - Output:​ **koReBOKuIDDepwhWk7jZC0RTdopnAYKh**
 
 This returns the next password.
+
+
+###  Natas
+
+#### Level 0:
+- Username: natas0
+- Password: natas0 
+- URL:​http://natas0.natas.labs.overthewire.org 
+
+#### Level 0 -> Level 1:
+
+Level 0 solution to get Level 1 password: Right click on the web page and view page source. 
+- PASSWORD for natas1 **IS:gtVrDuiDfck831PqWsLEZy5gyDz1clto** on the commented section.
+
+#### Level 1 -> Level 2:
+
+Use **Ctrl + U** to display non-editable HTML source code for the current page particularly if the right click functionality is  blocked and obtain the password in the commented section. 
+
+- You can also go to the console section, and you will be able to view the HTML code
+
+#### Level 2 -> Level 3:
