@@ -47,7 +47,7 @@ For more commands check out this [tutorial](https://maker.pro/linux/tutorial/bas
 - [Bandit](#bandit)
 - [Natas](#natas)
 
-### Bandit 
+## Bandit 
 
 #### Level 0:
 The goal of this level is for you to log into the game using SSH. 
@@ -127,7 +127,7 @@ drwxr-xr-x 2 root    root    4096 Oct 16  2018 . drwxr-xr-x 3 root    root    40
 
 This returns the next password. 
  
-**Level 4 → Level 5**
+#### Level 4 → Level 5
 The password for the next level is stored in the only human-readable file in the ​inhere​ directory.
 - **Tip**: if your terminal is messed up, try the “reset” command. 
 
@@ -149,6 +149,113 @@ drwxr-xr-x 2 root    root    4096 Oct 16  2018 . drwxr-xr-x 3 root    root    40
 - Output:​ **koReBOKuIDDepwhWk7jZC0RTdopnAYKh**
 
 This returns the next password.
+
+#### Level 5 → Level 6
+The password for the next level is stored in a file somewhere under the inhere directory and has all of the following properties:
+human-readable
+1033 bytes in size
+not executable
+
+$ ssh bandit5@bandit.labs.overthewire.org -p 2220
+$ ls
+Output: inhere
+ 
+$ cd inhere
+$ ls -la
+Output:
+ total 88
+drwxr-x--- 22 root bandit5 4096 Oct 16  2018 .
+drwxr-xr-x  3 root root    4096 Oct 16  2018 ..
+drwxr-x---  2 root bandit5 4096 Oct 16  2018 maybehere00
+drwxr-x---  2 root bandit5 4096 Oct 16  2018 maybehere01
+drwxr-x---  2 root bandit5 4096 Oct 16  2018 maybehere02
+drwxr-x---  2 root bandit5 4096 Oct 16  2018 maybehere03
+drwxr-x---  2 root bandit5 4096 Oct 16  2018 maybehere04
+drwxr-x---  2 root bandit5 4096 Oct 16  2018 maybehere05
+drwxr-x---  2 root bandit5 4096 Oct 16  2018 maybehere06
+drwxr-x---  2 root bandit5 4096 Oct 16  2018 maybehere07
+drwxr-x---  2 root bandit5 4096 Oct 16  2018 maybehere08
+drwxr-x---  2 root bandit5 4096 Oct 16  2018 maybehere09
+drwxr-x---  2 root bandit5 4096 Oct 16  2018 maybehere10
+drwxr-x---  2 root bandit5 4096 Oct 16  2018 maybehere11
+drwxr-x---  2 root bandit5 4096 Oct 16  2018 maybehere12
+drwxr-x---  2 root bandit5 4096 Oct 16  2018 maybehere13
+drwxr-x---  2 root bandit5 4096 Oct 16  2018 maybehere14
+drwxr-x---  2 root bandit5 4096 Oct 16  2018 maybehere15
+drwxr-x---  2 root bandit5 4096 Oct 16  2018 maybehere16
+drwxr-x---  2 root bandit5 4096 Oct 16  2018 maybehere17
+drwxr-x---  2 root bandit5 4096 Oct 16  2018 maybehere18
+drwxr-x---  2 root bandit5 4096 Oct 16  2018 maybehere19
+
+$ find . -type f -readable ! -executable -size 1033c
+Output: ./maybehere07/.file2
+$ cat ./maybehere07/.file2
+Output: DXjZPULLxYr17uwoI01bNLQbtFemEgo7
+
+
+#### Level 6 → Level 7
+
+The password for the next level is stored somewhere on the server and has all of the following properties:
+owned by user bandit7
+owned by group bandit6
+33 bytes in size
+
+$ ssh bandit6@bandit.labs.overthewire.org -p 2220
+
+$ find / -user bandit7 -group bandit6 -size 33c 2>/dev/null
+Output:/var/lib/dpkg/info/bandit7.password
+
+$ cat /var/lib/dpkg/info/bandit7.password
+
+Output: HKBPTKQnIay4Fw76bEy8PVxKEDQRKTzs
+
+#### Level 7 → Level 8
+The password for the next level is stored in the file data.txt next to the word millionth
+
+$ ssh bandit7@bandit.labs.overthewire.org -p 2220
+$ ls
+Output: data.txt
+ 
+$ cat data.txt | grep "millionth"
+Output: millionth	cvX2JJa4CFALtqS87jk27qwqGhBM9plV
+
+#### Level 8 → Level 9
+The password for the next level is stored in the file data.txt and is the only line of text that occurs only once.
+
+$ ssh bandit8@bandit.labs.overthewire.org -p 2220
+$ ls
+Output: data.txt
+$ cat data.txt | sort | uniq -u
+
+Output: UsvVyFSfZZWbi6wgC7dAFyFuR6jQQUhR
+
+#### Level 9 → Level 10
+The password for the next level is stored in the file data.txt in one of the few human-readable strings, beginning with several ‘=’ characters.
+
+$ ssh bandit9@bandit.labs.overthewire.org -p 2220
+$ ls
+Output: data.txt
+$ strings data.txt | grep "="
+Output:
+2========== the
+========== password
+>t=	yP
+rV~dHm=
+========== isa
+=FQ?P\U
+=	F[
+pb=x
+J;m=
+=)$=
+========== truKLdjsbJ5g7yyJ2X2R0o3a5HQJFuLk
+iv8!=
+
+For more information and information about the other levels follow the below links and continue playing and learning.
+https://medium.com/@Kan1shka9/overthewire-wargames-bandit-walkthrough-df2b86826c67
+
+http://overthewire.org/wargames/bandit/bandit6.html
+http://linuxcommand.org/
+
 
 
 ###  Natas
