@@ -277,3 +277,48 @@ Use **Ctrl + U** to display non-editable HTML source code for the current page p
 - You can also go to the console section, and you will be able to view the HTML code
 
 #### Level 2 -> Level 3:
+
+Level 2 solution to get level 3 password : You could check the html source code. The image source's directory "/files"  contents can be viewed.Inside this directory: there's a user.txt file with natas 3 password. 
+
+#### Level 3 -> Level 4:
+
+Check the html source code, we are guided by the comments that Google can not find it in time.
+Google is a search engine which indexes all web content using a web robot. A web robot/ web crawlers is a program that traverses the Web. 
+
+Websites use robots.txt files to tell web crawlers a few things about the structure of the website e.g where to find XML sitemap files, how fast the site can be crawled. It is openly accesible. 
+
+Structure of the robots.txt file:  	User-agent: * 
+     Disallow: /s3cr3t/ - Suggests that the robot should not crawl a specific web page or directory.However it can be penetrated if disregarded. 
+
+Search http://natas3.natas.labs.overthewire.org/s3cr3t/ - under this directory, the user.txt is listed which contains the passwords of the natas4 user
+
+How to control such security issues in robots.txt  
+   check :https://www.searchenginejournal.com/robots-txt-security-risks/289719/#close  
+
+#### Level 4 -> Level 5:   
+
+Level 4 solution to get level 5 password: At this level, we get a message that  Access disallowed. You are visiting from "http://natas4.natas.labs.overthewire.org/index.php" while authorized users should come only from "http://natas5.natas.labs.overthewire.org/" 
+
+From this information, only authorized user should be coming from http://natas5.natas.labs.overthewire.org/ –i.e  the user has to be natas5.
+
+This is called HTTP Referrer.This is an optional HTTP header field that identifies the address of the webpage which is linked to the resource being requested.
+
+For example ,  when a user clicks on a hyperlink in a web browser. the browser sends a request to the server holding the destination webpage. The request includes the referer field which indicates the last page the user was on (the one where they clicked the link).(Referer logging) 
+
+We are going to spoof the packets using the Burp Web vulnerability scanner.Download  the community free version from the following site : https://portswigger.net/burp 
+
+A spoofing attack is when a malicious party impersonates another device or user on a network in order to launch attacks against network hosts, steal data, spread malware, or bypass access controls. 
+
+Let’s begin by firing up Burp, and making sure our proxy is set up for localhost @ 127.0.0.1.  
+
+Use Firefox, go to Options > Network Settings > Settings > Choose Manual  proxy Configuration as follows: 
+
+--> Run Burp, reload the web page and go back to Burp. To view the intercepted packet in Burp, go to Proxy > Intercept 
+
+
+--> Change the highlighted natas4 to natas5 then click Forward to change the traffic contents to the web browser and you will view the password 
+
+--> Once done, go back to Network Settings and select “Use System Proxy Settings” so you can have a normal connection, without it routing through Burp 
+
+
+
