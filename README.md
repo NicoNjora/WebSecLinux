@@ -263,7 +263,7 @@ http://linuxcommand.org/
 - First, install Burp Web vulnerability scanner.
 - Download  the community free version from the following site : https://portswigger.net/burp while we continue:
 
-#### Goal: Try find out the password for the next level on the current page you just logged in.Most pages have a clue  
+#### Goal: Try find out the password for the next level on the current page you just logged in.Most pages have a clue. passwords may be contained in a file or within the page you are on.   
 
 #### Level 0:
 - Username: natas0
