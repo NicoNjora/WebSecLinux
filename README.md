@@ -260,6 +260,11 @@ http://linuxcommand.org/
 
 ###  Natas
 
+- First, install Burp Web vulnerability scanner.
+- Download  the community free version from the following site : https://portswigger.net/burp while we continue:
+
+#### Goal: Try find out the password for the next level on the current page you just logged in.Most pages have a clue  
+
 #### Level 0:
 - Username: natas0
 - Password: natas0 
