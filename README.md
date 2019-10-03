@@ -261,6 +261,7 @@ http://linuxcommand.org/
 ###  Natas
 
 - First, install Burp Web vulnerability scanner.
+- We are going to use Firefox, if you do not have kindly install.No need for a linux machine.Any can do
 - Download  the community free version from the following site : https://portswigger.net/burp while we continue:
 
 #### Goal: Try find out the password for the next level on the current page you just logged in.Most pages have a clue. passwords may be contained in a file or within the page you are on.   
@@ -314,9 +315,9 @@ We are going to spoof the packets using the Burp Web vulnerability scanner.Downl
 
 A spoofing attack is when a malicious party impersonates another device or user on a network in order to launch attacks against network hosts, steal data, spread malware, or bypass access controls. 
 
-Let’s begin by firing up Burp, and making sure our proxy is set up for localhost @ 127.0.0.1.  
+Let’s begin by firing up Burp, and making sure our proxy is set up for localhost @ 127.0.0.1 at the Options subsection.  
 
-Use Firefox, go to Options > Network Settings > Settings > Choose Manual  proxy Configuration as follows: 
+Use Firefox, go to Options > Network Settings > Settings > Choose Manual  proxy Configuration, set HTTP Proxy as 127.0.0.1 PORT:8080 follows: 
 
 --> Run Burp, reload the web page and go back to Burp. To view the intercepted packet in Burp, go to Proxy > Intercept 
 
